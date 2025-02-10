@@ -17,8 +17,8 @@ class TheaterHall(models.Model):
 
 
 class Actor(models.Model):
-    first_name = models.CharField(max_length=50, unique=True)
-    last_name = models.CharField(max_length=50, unique=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -51,7 +51,7 @@ class Play(models.Model):
 
 class Performance(models.Model):
     play = models.ForeignKey(Play, on_delete=models.CASCADE)
-    theatre_hall = models.ForeignKey(TheaterHall, on_delete=models.CASCADE)
+    theater_hall = models.ForeignKey(TheaterHall, on_delete=models.CASCADE)
     show_time = models.DateTimeField()
 
     class Meta:
@@ -110,7 +110,7 @@ class Ticket(models.Model):
         self.validate_ticket(
             self.row,
             self.seat,
-            self.performance.theatre_hall,
+            self.performance.theater_hall,
             ValidationError,
         )
 
