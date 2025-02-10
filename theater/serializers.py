@@ -140,6 +140,7 @@ class TicketListSerializer(TicketSerializer):
 
 
 class ReservationSerializer(serializers.ModelSerializer):
+    created_at = serializers.DateTimeField(format="%d %b %Y, %H:%M", read_only=True)
     tickets = TicketSerializer(many=True, read_only=False, allow_empty=False)
 
     class Meta:

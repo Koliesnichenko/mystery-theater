@@ -17,7 +17,7 @@ from theater.serializers import (
     PerformanceSerializer,
     ReservationSerializer,
     TheaterHallSerializer, PlayListSerializer, PlayDetailSerializer, PerformanceListSerializer,
-    PerformanceDetailSerializer,
+    PerformanceDetailSerializer, ReservationListSerializer, TicketListSerializer,
 )
 
 
@@ -32,7 +32,7 @@ class ActorViewSet(viewsets.ModelViewSet):
 
 
 class PlayViewSet(viewsets.ModelViewSet):
-    queryset = Play.objects.all()
+    queryset = Play.objects.prefetch_related("genres", "actors")
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -48,6 +48,15 @@ class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
 
+    def get_queryset(self):
+        queryset = Ticket.objects.select_related()
+        return queryset
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return TicketListSerializer
+        return TicketSerializer
+
 
 class TheaterHallViewSet(viewsets.ModelViewSet):
     queryset = TheaterHall.objects.all()
@@ -55,8 +64,23 @@ class TheaterHallViewSet(viewsets.ModelViewSet):
 
 
 class ReservationViewSet(viewsets.ModelViewSet):
-    queryset = Reservation.objects.all()
+    queryset = Reservation.objects.prefetch_related(
+        "tickets__performance__play",
+        "tickets__performance__theater_hall"
+    )
     serializer_class = ReservationSerializer
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return ReservationListSerializer
+
+        return ReservationSerializer
+
+    def get_queryset(self):
+        return Reservation.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
 class PerformanceViewSet(viewsets.ModelViewSet):
@@ -72,4 +96,8 @@ class PerformanceViewSet(viewsets.ModelViewSet):
 
         return PerformanceSerializer
 
+    def get_queryset(self):
+        queryset = self.queryset
+        if self.action == "list":
+            return queryset.select_related()
 
