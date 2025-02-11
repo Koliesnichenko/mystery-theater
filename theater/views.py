@@ -2,6 +2,8 @@ from datetime import datetime
 
 from django.db.models import F, Count, Q
 from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination
+
 from theater.models import (
     Genre,
     Actor,
@@ -36,6 +38,11 @@ class GenreViewSet(viewsets.ModelViewSet):
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
+
+
+class OrderPagination(PageNumberPagination):
+    page_size = 5
+    max_page_size = 50
 
 
 class PlayViewSet(viewsets.ModelViewSet):
@@ -74,6 +81,7 @@ class PlayViewSet(viewsets.ModelViewSet):
 class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
+    pagination_class = OrderPagination
 
     def get_queryset(self):
         queryset = Ticket.objects.select_related()
@@ -96,6 +104,7 @@ class ReservationViewSet(viewsets.ModelViewSet):
         "tickets__performance__theater_hall"
     )
     serializer_class = ReservationSerializer
+    pagination_class = OrderPagination
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -122,6 +131,7 @@ class PerformanceViewSet(viewsets.ModelViewSet):
         )
     )
     serializer_class = PerformanceSerializer
+    pagination_class = OrderPagination
 
     def get_queryset(self):
         date_str = self.request.query_params.get("date")
