@@ -1,4 +1,6 @@
-from django.db.models import F, Count
+from datetime import datetime
+
+from django.db.models import F, Count, Q
 from rest_framework import viewsets
 from theater.models import (
     Genre,
@@ -38,6 +40,26 @@ class ActorViewSet(viewsets.ModelViewSet):
 
 class PlayViewSet(viewsets.ModelViewSet):
     queryset = Play.objects.prefetch_related("genres", "actors")
+
+    def get_queryset(self):
+        title = self.request.query_params.get("title")
+        genres = self.request.query_params.get("genres")
+        actors = self.request.query_params.get("actors")
+
+        queryset = self.queryset
+
+        filters = Q()
+
+        if title:
+            filters &= Q(title__icontains=title)
+
+        if genres:
+            filters &= Q(genres__name__icontains=genres)
+
+        if actors:
+            filters &= (Q(actors__first_name__icontains=actors) | Q(actors__last_name__icontains=actors))
+
+        return queryset.filter(filters).distinct()
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -101,6 +123,24 @@ class PerformanceViewSet(viewsets.ModelViewSet):
     )
     serializer_class = PerformanceSerializer
 
+    def get_queryset(self):
+        date_str = self.request.query_params.get("date")
+        play = self.request.query_params.get("play")
+
+        queryset = self.queryset
+
+        if date_str:
+            try:
+                date = datetime.strptime(date_str, "%Y-%m-%d").date()
+                queryset = queryset.filter(show_time__date=date)
+            except ValueError:
+                pass
+
+        if play:
+            queryset = queryset.filter(play__id=play)
+
+        return queryset
+
     def get_serializer_class(self):
         if self.action == "list":
             return PerformanceListSerializer
@@ -109,10 +149,4 @@ class PerformanceViewSet(viewsets.ModelViewSet):
             return PerformanceDetailSerializer
 
         return PerformanceSerializer
-
-    def get_queryset(self):
-        queryset = self.queryset
-        if self.action == "list":
-            return queryset.select_related()
-        return queryset
 
