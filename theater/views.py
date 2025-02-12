@@ -1,9 +1,10 @@
 from datetime import datetime
 
 from django.db.models import F, Count, Q
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import GenericViewSet
 
 from theater.models import (
     Genre,
@@ -32,13 +33,23 @@ from theater.serializers import (
 )
 
 
-class GenreViewSet(viewsets.ModelViewSet):
+class GenreViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    GenericViewSet,
+):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
     permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
 
-class ActorViewSet(viewsets.ModelViewSet):
+class ActorViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    GenericViewSet,
+):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
     permission_classes = [IsAdminOrAuthenticatedReadOnly,]
@@ -49,7 +60,13 @@ class OrderPagination(PageNumberPagination):
     max_page_size = 50
 
 
-class PlayViewSet(viewsets.ModelViewSet):
+class PlayViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.RetrieveModelMixin,
+    GenericViewSet,
+):
     queryset = Play.objects.prefetch_related("genres", "actors")
     permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
@@ -83,11 +100,15 @@ class PlayViewSet(viewsets.ModelViewSet):
         return PlaySerializer
 
 
-class TicketViewSet(viewsets.ModelViewSet):
+class TicketViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    GenericViewSet,
+):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     pagination_class = OrderPagination
-    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
+    permission_classes = [IsAuthenticated,]
 
     def get_queryset(self):
         queryset = Ticket.objects.select_related()
@@ -99,13 +120,20 @@ class TicketViewSet(viewsets.ModelViewSet):
         return TicketSerializer
 
 
-class TheaterHallViewSet(viewsets.ModelViewSet):
+class TheaterHallViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    GenericViewSet,
+):
     queryset = TheaterHall.objects.all()
     serializer_class = TheaterHallSerializer
     permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
 
-class ReservationViewSet(viewsets.ModelViewSet):
+class ReservationViewSet(
+    mixins.ListModelMixin,
+    GenericViewSet,
+):
     queryset = Reservation.objects.prefetch_related(
         "tickets__performance__play",
         "tickets__performance__theater_hall"
@@ -127,7 +155,13 @@ class ReservationViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-class PerformanceViewSet(viewsets.ModelViewSet):
+class PerformanceViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.RetrieveModelMixin,
+    GenericViewSet,
+):
     queryset = (
         Performance.objects.all()
         .select_related("play", "theater_hall")
@@ -168,4 +202,3 @@ class PerformanceViewSet(viewsets.ModelViewSet):
             return PerformanceDetailSerializer
 
         return PerformanceSerializer
-
