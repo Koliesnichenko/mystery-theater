@@ -3,6 +3,7 @@ from datetime import datetime
 from django.db.models import F, Count, Q
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 
 from theater.models import (
     Genre,
@@ -13,6 +14,7 @@ from theater.models import (
     Reservation,
     Ticket,
 )
+from theater.permissions import IsAdminOrAuthenticatedReadOnly
 from theater.serializers import (
     GenreSerializer,
     ActorSerializer,
@@ -33,11 +35,13 @@ from theater.serializers import (
 class GenreViewSet(viewsets.ModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
+    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
 
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
+    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
 
 class OrderPagination(PageNumberPagination):
@@ -47,6 +51,7 @@ class OrderPagination(PageNumberPagination):
 
 class PlayViewSet(viewsets.ModelViewSet):
     queryset = Play.objects.prefetch_related("genres", "actors")
+    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
     def get_queryset(self):
         title = self.request.query_params.get("title")
@@ -82,6 +87,7 @@ class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     pagination_class = OrderPagination
+    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
     def get_queryset(self):
         queryset = Ticket.objects.select_related()
@@ -96,6 +102,7 @@ class TicketViewSet(viewsets.ModelViewSet):
 class TheaterHallViewSet(viewsets.ModelViewSet):
     queryset = TheaterHall.objects.all()
     serializer_class = TheaterHallSerializer
+    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
 
 class ReservationViewSet(viewsets.ModelViewSet):
@@ -105,6 +112,7 @@ class ReservationViewSet(viewsets.ModelViewSet):
     )
     serializer_class = ReservationSerializer
     pagination_class = OrderPagination
+    permission_classes = [IsAuthenticated,]
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -132,6 +140,7 @@ class PerformanceViewSet(viewsets.ModelViewSet):
     )
     serializer_class = PerformanceSerializer
     pagination_class = OrderPagination
+    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
 
     def get_queryset(self):
         date_str = self.request.query_params.get("date")
