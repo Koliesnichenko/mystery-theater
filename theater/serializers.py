@@ -81,6 +81,8 @@ class TheaterHallSerializer(serializers.ModelSerializer):
 
 
 class TicketSerializer(serializers.ModelSerializer):
+    reservation = serializers.PrimaryKeyRelatedField(read_only=True)
+
     def validate(self, attrs):
         Ticket.validate_ticket(
             attrs["row"],
@@ -89,6 +91,14 @@ class TicketSerializer(serializers.ModelSerializer):
             ValidationError
         )
         return attrs
+
+    def create(self, validated_data):
+        request = self.context["request"]
+        user = request.user
+
+        reservation, created = Reservation.objects.get_or_create(user=user)
+        validated_data["reservation"] = reservation
+        return super().create(validated_data)
 
     class Meta:
         model = Ticket
