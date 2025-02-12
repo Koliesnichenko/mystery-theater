@@ -1,5 +1,9 @@
+import os
+import uuid
+
 from django.conf import settings
 from django.db import models
+from django.utils.text import slugify
 from rest_framework.exceptions import ValidationError
 
 
@@ -35,12 +39,20 @@ class Genre(models.Model):
         return self.name
 
 
+def play_image_file_path(instance, filename):
+    _, extension = os.path.splitext(filename)
+    filename = f"{slugify(instance.title)}-{uuid.uuid4()}{extension}"
+
+    return os.path.join("uploads/plays/", filename)
+
+
 class Play(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     duration = models.IntegerField()
     genres = models.ManyToManyField(Genre, blank=True, related_name="plays")
     actors = models.ManyToManyField(Actor, blank=True, related_name="plays")
+    image = models.ImageField(null=True, upload_to=play_image_file_path)
 
     class Meta:
         ordering = ["title"]
