@@ -1,6 +1,8 @@
 from datetime import datetime
 
 from django.db.models import F, Count, Q
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework import viewsets, mixins, status
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
@@ -120,6 +122,28 @@ class PlayViewSet(
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "genres",
+                type=OpenApiTypes.STR,
+                description="Filter by genres(ex. ?genres=genre)",
+            ),
+            OpenApiParameter(
+                "actors",
+                type=OpenApiTypes.STR,
+                description="Filter by actors(ex. ?actors=name)",
+            ),
+            OpenApiParameter(
+                "title",
+                type=OpenApiTypes.STR,
+                description="Filter by title (ex. ?title=title)",
+            )
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
 
 class TicketViewSet(
     mixins.ListModelMixin,
@@ -223,3 +247,20 @@ class PerformanceViewSet(
             return PerformanceDetailSerializer
 
         return PerformanceSerializer
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "date",
+                type=OpenApiTypes.DATE,
+                description="Filter by date (format: YYYY-MM-DD)",
+            ),
+            OpenApiParameter(
+                "play",
+                type=OpenApiTypes.INT,
+                description="Filter by play(ex. ?play=4)",
+            )
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
