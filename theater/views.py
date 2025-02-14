@@ -69,10 +69,10 @@ class PlayViewSet(
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
     mixins.RetrieveModelMixin,
-    GenericViewSet,
+    viewsets.GenericViewSet,
 ):
     queryset = Play.objects.prefetch_related("genres", "actors")
-    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
+    permission_classes = (IsAdminOrAuthenticatedReadOnly,)
 
     def get_queryset(self):
         title = self.request.query_params.get("title")

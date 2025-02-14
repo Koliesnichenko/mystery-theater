@@ -68,7 +68,7 @@ class PlayDetailSerializer(PlaySerializer):
     actors = ActorSerializer(many=True, read_only=True)
     genres = GenreSerializer(many=True, read_only=True)
 
-    class Mete:
+    class Meta:
         model = Play
         fields = (
             "id",
@@ -77,7 +77,7 @@ class PlayDetailSerializer(PlaySerializer):
             "description",
             "actors",
             "genres",
-            "image"
+            "image",
         )
 
 
