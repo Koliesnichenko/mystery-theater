@@ -76,7 +76,8 @@ class Performance(models.Model):
 class Reservation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reservations"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE, related_name="reservations"
     )
 
     class Meta:
@@ -97,7 +98,12 @@ class Ticket(models.Model):
     seat = models.IntegerField()
 
     @staticmethod
-    def validate_ticket(row, seat, theater_hall, error_to_raise=ValidationError):
+    def validate_ticket(
+            row,
+            seat,
+            theater_hall,
+            error_to_raise=ValidationError
+    ):
         errors = {}
 
         for ticket_attr_value, ticket_attr_name, theater_hall_attr_name in [
