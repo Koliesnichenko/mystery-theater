@@ -1,0 +1,1143 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "theater",
+    "model": "actor"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "theater",
+    "model": "genre"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "theater",
+    "model": "reservation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "theater",
+    "model": "theaterhall"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "theater",
+    "model": "ticket"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "theater",
+    "model": "play"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "theater",
+    "model": "performance"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "user",
+    "model": "user"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "owj8f65xpbmk5s7rc042qkx3iw82do98",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pACMgwu3fcMZAYmUjU0Ke3KeHdt0oVu_3vvv1Siba1p67KkqaiLMur0uzHlh7QdlDu126zz3NZlYr0r-qBdj3OR5_Vw_w4q9fqtM51dIabIAchHiIzIKAYB2SMUBhPZoZQB0NtgLSMMRoITguwdqfcH7Mw3tw:1tiCkL:i5ylOtvSHPg_c5JWfMzXArGg4jsfNqh1BN-_ZH_07vY",
+    "expire_date": "2025-02-26T13:25:45.615Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wpune5muh8du0y8yj5xs9vgghk8vq1gv",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQRO9CHSG85psyvc-AgGWDkwgkY1dR7h5bcpGUM-_NvJkP21r81vPiZ2RXNrDLbxdDeuZ6AHyEem88tbouc-SHwk_a-dQwv26n-3dQQi_7OmuUGsHCGLMARS6CG6xxZEmgRiPJJocmmqhTkgR7RBjFqJRyYBSxzxflGjfK:1thYJl:a1AanHzqnQtEnQmRLUj5w6eoBY8HSAdjWERS2AKAVes",
+    "expire_date": "2025-02-24T18:15:37.704Z"
+  }
+},
+{
+  "model": "theater.theaterhall",
+  "pk": 1,
+  "fields": {
+    "name": "Main Hall",
+    "rows": 15,
+    "seats_in_row": 20
+  }
+},
+{
+  "model": "theater.theaterhall",
+  "pk": 2,
+  "fields": {
+    "name": "Red Hall",
+    "rows": 12,
+    "seats_in_row": 20
+  }
+},
+{
+  "model": "theater.theaterhall",
+  "pk": 3,
+  "fields": {
+    "name": "Black Hall",
+    "rows": 17,
+    "seats_in_row": 15
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 1,
+  "fields": {
+    "first_name": "Benedict",
+    "last_name": "Cumberbatch"
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 2,
+  "fields": {
+    "first_name": "Benedict",
+    "last_name": "Wong"
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 3,
+  "fields": {
+    "first_name": "Elizabeth",
+    "last_name": "Olsen"
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 4,
+  "fields": {
+    "first_name": "Brad",
+    "last_name": "Pitt"
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 5,
+  "fields": {
+    "first_name": "Morgan",
+    "last_name": "Freeman"
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 6,
+  "fields": {
+    "first_name": "Gwyneth",
+    "last_name": "Paltrow"
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 7,
+  "fields": {
+    "first_name": "Tom",
+    "last_name": "Hanks"
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 8,
+  "fields": {
+    "first_name": "David",
+    "last_name": "Morse"
+  }
+},
+{
+  "model": "theater.actor",
+  "pk": 9,
+  "fields": {
+    "first_name": "Bonnie",
+    "last_name": "Hunt"
+  }
+},
+{
+  "model": "theater.genre",
+  "pk": 1,
+  "fields": {
+    "name": "Drama"
+  }
+},
+{
+  "model": "theater.genre",
+  "pk": 2,
+  "fields": {
+    "name": "Horror"
+  }
+},
+{
+  "model": "theater.genre",
+  "pk": 3,
+  "fields": {
+    "name": "Sci-fi"
+  }
+},
+{
+  "model": "theater.genre",
+  "pk": 4,
+  "fields": {
+    "name": "Thriller"
+  }
+},
+{
+  "model": "theater.genre",
+  "pk": 5,
+  "fields": {
+    "name": "Mystery"
+  }
+},
+{
+  "model": "theater.play",
+  "pk": 1,
+  "fields": {
+    "title": "Doctor Strange in the multiverse of Madness",
+    "description": "Doctor Strange teams up with a mysterious teenage girl who can travel across multiverses, to battle other-universe versions of himself which threaten to wipe out the multiverse. They seek help from the Scarlet Witch, Wong and others.",
+    "duration": 120,
+    "image": "",
+    "genres": [
+      2,
+      3,
+      5
+    ],
+    "actors": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "theater.play",
+  "pk": 2,
+  "fields": {
+    "title": "Seven",
+    "description": "wo detectives, one about to leave and one entering find themselves following a series of murders, they find clues linking the deaths and the seven sins. The movie follows the cops, their family and tracking down the mass murderer who delivers an unforgettable ending.",
+    "duration": 109,
+    "image": "uploads/plays/seven-ebf617ec-dee6-47cf-8585-368194201a23.png",
+    "genres": [
+      1,
+      4,
+      5
+    ],
+    "actors": [
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "theater.play",
+  "pk": 4,
+  "fields": {
+    "title": "The Green Mile",
+    "description": "The Green Mile is a 1996 serial novel by American writer Stephen King. It tells the story of death row supervisor Paul Edgecombe's encounter with John Coffey, an unusual inmate who displays inexplicable healing and empathetic abilities.",
+    "duration": 124,
+    "image": "",
+    "genres": [
+      1,
+      4,
+      5
+    ],
+    "actors": [
+      7,
+      8,
+      9
+    ]
+  }
+},
+{
+  "model": "theater.performance",
+  "pk": 1,
+  "fields": {
+    "play": 1,
+    "theater_hall": 1,
+    "show_time": "2025-02-12T18:00:00Z"
+  }
+},
+{
+  "model": "theater.performance",
+  "pk": 2,
+  "fields": {
+    "play": 2,
+    "theater_hall": 2,
+    "show_time": "2025-02-27T18:00:00Z"
+  }
+},
+{
+  "model": "theater.performance",
+  "pk": 3,
+  "fields": {
+    "play": 4,
+    "theater_hall": 3,
+    "show_time": "2025-02-15T18:00:00Z"
+  }
+},
+{
+  "model": "theater.ticket",
+  "pk": 1,
+  "fields": {
+    "performance": 3,
+    "reservation": 1,
+    "row": 1,
+    "seat": 1
+  }
+},
+{
+  "model": "theater.ticket",
+  "pk": 2,
+  "fields": {
+    "performance": 3,
+    "reservation": 2,
+    "row": 3,
+    "seat": 3
+  }
+},
+{
+  "model": "theater.ticket",
+  "pk": 3,
+  "fields": {
+    "performance": 3,
+    "reservation": 2,
+    "row": 3,
+    "seat": 4
+  }
+},
+{
+  "model": "theater.ticket",
+  "pk": 4,
+  "fields": {
+    "performance": 3,
+    "reservation": 1,
+    "row": 2,
+    "seat": 6
+  }
+},
+{
+  "model": "theater.ticket",
+  "pk": 5,
+  "fields": {
+    "performance": 1,
+    "reservation": 1,
+    "row": 4,
+    "seat": 8
+  }
+},
+{
+  "model": "theater.ticket",
+  "pk": 6,
+  "fields": {
+    "performance": 2,
+    "reservation": 3,
+    "row": 4,
+    "seat": 12
+  }
+},
+{
+  "model": "theater.ticket",
+  "pk": 7,
+  "fields": {
+    "performance": 2,
+    "reservation": 4,
+    "row": 3,
+    "seat": 5
+  }
+},
+{
+  "model": "theater.ticket",
+  "pk": 8,
+  "fields": {
+    "performance": 3,
+    "reservation": 4,
+    "row": 2,
+    "seat": 5
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add actor",
+    "content_type": [
+      "theater",
+      "actor"
+    ],
+    "codename": "add_actor"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change actor",
+    "content_type": [
+      "theater",
+      "actor"
+    ],
+    "codename": "change_actor"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete actor",
+    "content_type": [
+      "theater",
+      "actor"
+    ],
+    "codename": "delete_actor"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view actor",
+    "content_type": [
+      "theater",
+      "actor"
+    ],
+    "codename": "view_actor"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add genre",
+    "content_type": [
+      "theater",
+      "genre"
+    ],
+    "codename": "add_genre"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change genre",
+    "content_type": [
+      "theater",
+      "genre"
+    ],
+    "codename": "change_genre"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete genre",
+    "content_type": [
+      "theater",
+      "genre"
+    ],
+    "codename": "delete_genre"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view genre",
+    "content_type": [
+      "theater",
+      "genre"
+    ],
+    "codename": "view_genre"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add reservation",
+    "content_type": [
+      "theater",
+      "reservation"
+    ],
+    "codename": "add_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change reservation",
+    "content_type": [
+      "theater",
+      "reservation"
+    ],
+    "codename": "change_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete reservation",
+    "content_type": [
+      "theater",
+      "reservation"
+    ],
+    "codename": "delete_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view reservation",
+    "content_type": [
+      "theater",
+      "reservation"
+    ],
+    "codename": "view_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add theater hall",
+    "content_type": [
+      "theater",
+      "theaterhall"
+    ],
+    "codename": "add_theaterhall"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change theater hall",
+    "content_type": [
+      "theater",
+      "theaterhall"
+    ],
+    "codename": "change_theaterhall"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete theater hall",
+    "content_type": [
+      "theater",
+      "theaterhall"
+    ],
+    "codename": "delete_theaterhall"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view theater hall",
+    "content_type": [
+      "theater",
+      "theaterhall"
+    ],
+    "codename": "view_theaterhall"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add ticket",
+    "content_type": [
+      "theater",
+      "ticket"
+    ],
+    "codename": "add_ticket"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change ticket",
+    "content_type": [
+      "theater",
+      "ticket"
+    ],
+    "codename": "change_ticket"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete ticket",
+    "content_type": [
+      "theater",
+      "ticket"
+    ],
+    "codename": "delete_ticket"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view ticket",
+    "content_type": [
+      "theater",
+      "ticket"
+    ],
+    "codename": "view_ticket"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add play",
+    "content_type": [
+      "theater",
+      "play"
+    ],
+    "codename": "add_play"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change play",
+    "content_type": [
+      "theater",
+      "play"
+    ],
+    "codename": "change_play"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete play",
+    "content_type": [
+      "theater",
+      "play"
+    ],
+    "codename": "delete_play"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view play",
+    "content_type": [
+      "theater",
+      "play"
+    ],
+    "codename": "view_play"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add performance",
+    "content_type": [
+      "theater",
+      "performance"
+    ],
+    "codename": "add_performance"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change performance",
+    "content_type": [
+      "theater",
+      "performance"
+    ],
+    "codename": "change_performance"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete performance",
+    "content_type": [
+      "theater",
+      "performance"
+    ],
+    "codename": "delete_performance"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view performance",
+    "content_type": [
+      "theater",
+      "performance"
+    ],
+    "codename": "view_performance"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "user",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "user",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "user",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "user",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "user.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$xNlr5uBdGi4j7arKXhX8ID$sBfB/s3cyNl67Qko9s9L8U0kPgH1lzRQDa6vkJY2E0w=",
+    "last_login": "2025-02-12T13:25:45.611Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-02-10T12:29:10.844Z",
+    "username": "admin",
+    "email": "admin@admin.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$zIK2LmEphYlC9Pxakloghy$7YnUzqDC5zpjPvZZHg6HcLUBEz1n8zEtUIRSn3x8zU4=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-02-10T18:13:04.885Z",
+    "username": "user",
+    "email": "user@user.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$iHiTYc6fX3qLvlVEetlAXY$ZlJ34hcqtTkk6ZqVhUpLQ/Syz/H14igtmS8829EiYt4=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-02-11T13:11:21.224Z",
+    "username": "user_111",
+    "email": "user@user1.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$KSZgHfjSCXWnvYUN2zzksr$oV+XLcMu7FvrlODa4LX1guXdOqloniBcC2nT00n9udE=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-02-12T10:33:16.503Z",
+    "username": "user_new",
+    "email": "new@new.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ECOteaqWb9UYLvABDLqjPS$fLdPN+t/IIuUFV5EmICaRk5O68RZSltSce387Z9Q6qw=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "user",
+    "last_name": "usersuper",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-02-13T08:28:36.143Z",
+    "username": "user_5",
+    "email": "user_5@mail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "theater.reservation",
+  "pk": 1,
+  "fields": {
+    "created_at": "2025-02-10T16:44:47.904Z",
+    "user": [
+      "admin@admin.com"
+    ]
+  }
+},
+{
+  "model": "theater.reservation",
+  "pk": 2,
+  "fields": {
+    "created_at": "2025-02-10T18:14:08.262Z",
+    "user": [
+      "user@user.com"
+    ]
+  }
+},
+{
+  "model": "theater.reservation",
+  "pk": 3,
+  "fields": {
+    "created_at": "2025-02-12T10:10:35.615Z",
+    "user": [
+      "admin@admin.com"
+    ]
+  }
+},
+{
+  "model": "theater.reservation",
+  "pk": 4,
+  "fields": {
+    "created_at": "2025-02-12T11:17:30.772Z",
+    "user": [
+      "new@new.com"
+    ]
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-02-10T16:44:47.910Z",
+    "user": [
+      "admin@admin.com"
+    ],
+    "content_type": [
+      "theater",
+      "reservation"
+    ],
+    "object_id": "1",
+    "object_repr": "2025-02-10 16:44:47.904750+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"ticket\", \"object\": \"The Green Mile 2025-02-15 18:00:00+00:00 (row: 1, seat: 1)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-02-10T18:14:08.265Z",
+    "user": [
+      "admin@admin.com"
+    ],
+    "content_type": [
+      "theater",
+      "reservation"
+    ],
+    "object_id": "2",
+    "object_repr": "2025-02-10 18:14:08.262396+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"ticket\", \"object\": \"The Green Mile 2025-02-15 18:00:00+00:00 (row: 3, seat: 3)\"}}]"
+  }
+}
+]
