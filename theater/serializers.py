@@ -31,14 +31,7 @@ class PlaySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Play
-        fields = (
-            "id",
-            "title",
-            "description",
-            "duration",
-            "actors",
-            "genres"
-        )
+        fields = ("id", "title", "description", "duration", "actors", "genres")
 
 
 class PlayImageSerializer(serializers.ModelSerializer):
@@ -49,15 +42,9 @@ class PlayImageSerializer(serializers.ModelSerializer):
 
 class PlayListSerializer(PlaySerializer):
     actors = serializers.SlugRelatedField(
-        many=True,
-        read_only=True,
-        slug_field="full_name"
+        many=True, read_only=True, slug_field="full_name"
     )
-    genres = serializers.SlugRelatedField(
-        many=True,
-        read_only=True,
-        slug_field="name"
-    )
+    genres = serializers.SlugRelatedField(many=True, read_only=True, slug_field="name")
 
     class Meta:
         model = Play
@@ -95,7 +82,7 @@ class TicketSerializer(serializers.ModelSerializer):
             attrs["row"],
             attrs["seat"],
             attrs["performance"].theater_hall,
-            ValidationError
+            ValidationError,
         )
         return attrs
 
@@ -126,13 +113,9 @@ class PerformanceSerializer(serializers.ModelSerializer):
 
 class PerformanceListSerializer(PerformanceSerializer):
     play_title = serializers.CharField(source="play.title", read_only=True)
-    theater_hall = serializers.CharField(
-        source="theater_hall.name",
-        read_only=True
-    )
+    theater_hall = serializers.CharField(source="theater_hall.name", read_only=True)
     theater_hall_capacity = serializers.CharField(
-        source="theater_hall.capacity",
-        read_only=True
+        source="theater_hall.capacity", read_only=True
     )
     tickets_available = serializers.IntegerField(read_only=True)
 
@@ -144,7 +127,7 @@ class PerformanceListSerializer(PerformanceSerializer):
             "theater_hall",
             "theater_hall_capacity",
             "tickets_available",
-            "show_time"
+            "show_time",
         )
 
 
@@ -162,7 +145,7 @@ class PerformanceDetailSerializer(PerformanceSerializer):
             "theater_hall",
             "show_time",
             "taken_places",
-            "tickets_available"
+            "tickets_available",
         )
 
     def get_taken_places(self, obj):
@@ -198,4 +181,3 @@ class ReservationSerializer(serializers.ModelSerializer):
 
 class ReservationListSerializer(ReservationSerializer):
     tickets = TicketListSerializer(many=True, read_only=True)
-

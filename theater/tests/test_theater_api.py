@@ -27,9 +27,7 @@ def sample_actor(**params) -> Actor:
 
 
 def sample_genre(**params) -> Genre:
-    defaults = {
-        "name": "Drama"
-    }
+    defaults = {"name": "Drama"}
     defaults.update(params)
     return Genre.objects.create(**defaults)
 
@@ -45,7 +43,9 @@ def sample_play(**params) -> Play:
 
 
 def sample_performance(**params) -> Performance:
-    theater_hall = TheaterHall.objects.create(name="Main Hall", rows=10, seats_in_row=20)
+    theater_hall = TheaterHall.objects.create(
+        name="Main Hall", rows=10, seats_in_row=20
+    )
 
     defaults = {
         "show_time": "2025-02-12 12:00:00",
@@ -86,9 +86,7 @@ class AuthenticatedPlayApiTest(TestCase):
     def setUp(self):
         self.client = APIClient()
         self.user = User.objects.create_user(
-            username="testuser",
-            email="test@email.test",
-            password="testpass"
+            username="testuser", email="test@email.test", password="testpass"
         )
         self.client.force_authenticate(user=self.user)
 
@@ -210,7 +208,7 @@ class AdminPlayApiTest(TestCase):
             username="adminuser",
             email="admin@admin.test",
             password="testpass",
-            is_staff=True
+            is_staff=True,
         )
         self.client.force_authenticate(user=self.user)
 
@@ -292,12 +290,12 @@ class PlayImageUploadTest(TestCase):
             res = self.client.post(
                 url,
                 {
-                        "title": "Test",
-                        "description": "Description",
-                        "actors": [actor.id],
-                        "genres": [genre.id],
-                        "duration": 60,
-                        "image": ntf,
+                    "title": "Test",
+                    "description": "Description",
+                    "actors": [actor.id],
+                    "genres": [genre.id],
+                    "duration": 60,
+                    "image": ntf,
                 },
                 format="multipart",
             )
@@ -326,5 +324,3 @@ class PlayImageUploadTest(TestCase):
         res = self.client.get(PLAY_URL)
 
         self.assertIn("image", res.data[0].keys())
-
-

@@ -33,7 +33,8 @@ from theater.serializers import (
     PerformanceListSerializer,
     PerformanceDetailSerializer,
     ReservationListSerializer,
-    TicketListSerializer, PlayImageSerializer,
+    TicketListSerializer,
+    PlayImageSerializer,
 )
 
 
@@ -45,7 +46,9 @@ class GenreViewSet(
 ):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
-    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
+    permission_classes = [
+        IsAdminOrAuthenticatedReadOnly,
+    ]
 
 
 class ActorViewSet(
@@ -56,7 +59,9 @@ class ActorViewSet(
 ):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
-    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
+    permission_classes = [
+        IsAdminOrAuthenticatedReadOnly,
+    ]
 
 
 class OrderPagination(PageNumberPagination):
@@ -90,7 +95,9 @@ class PlayViewSet(
             filters &= Q(genres__name__icontains=genres)
 
         if actors:
-            filters &= (Q(actors__first_name__icontains=actors) | Q(actors__last_name__icontains=actors))
+            filters &= Q(actors__first_name__icontains=actors) | Q(
+                actors__last_name__icontains=actors
+            )
 
         return queryset.filter(filters).distinct()
 
@@ -138,7 +145,7 @@ class PlayViewSet(
                 "title",
                 type=OpenApiTypes.STR,
                 description="Filter by title (ex. ?title=title)",
-            )
+            ),
         ]
     )
     def list(self, request, *args, **kwargs):
@@ -153,7 +160,9 @@ class TicketViewSet(
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     pagination_class = OrderPagination
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [
+        IsAuthenticated,
+    ]
 
     def get_queryset(self):
         queryset = Ticket.objects.select_related()
@@ -172,7 +181,9 @@ class TheaterHallViewSet(
 ):
     queryset = TheaterHall.objects.all()
     serializer_class = TheaterHallSerializer
-    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
+    permission_classes = [
+        IsAdminOrAuthenticatedReadOnly,
+    ]
 
 
 class ReservationViewSet(
@@ -180,12 +191,13 @@ class ReservationViewSet(
     GenericViewSet,
 ):
     queryset = Reservation.objects.prefetch_related(
-        "tickets__performance__play",
-        "tickets__performance__theater_hall"
+        "tickets__performance__play", "tickets__performance__theater_hall"
     )
     serializer_class = ReservationSerializer
     pagination_class = OrderPagination
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [
+        IsAuthenticated,
+    ]
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -219,7 +231,9 @@ class PerformanceViewSet(
     )
     serializer_class = PerformanceSerializer
     pagination_class = OrderPagination
-    permission_classes = [IsAdminOrAuthenticatedReadOnly,]
+    permission_classes = [
+        IsAdminOrAuthenticatedReadOnly,
+    ]
 
     def get_queryset(self):
         date_str = self.request.query_params.get("date")
@@ -259,7 +273,7 @@ class PerformanceViewSet(
                 "play",
                 type=OpenApiTypes.INT,
                 description="Filter by play(ex. ?play=4)",
-            )
+            ),
         ]
     )
     def list(self, request, *args, **kwargs):

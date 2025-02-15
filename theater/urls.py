@@ -8,7 +8,7 @@ from theater.views import (
     PerformanceViewSet,
     TicketViewSet,
     TheaterHallViewSet,
-    ReservationViewSet
+    ReservationViewSet,
 )
 
 router = routers.DefaultRouter()
